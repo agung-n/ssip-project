@@ -5,8 +5,8 @@
     $studentName = $_POST['studentName'];
     $studentGender = $_POST['studentGender'];
 // query SQL untuk insert data
-    $query="INSERT INTO student_tbl SET studentID='$studentID',studentName='$studentName',studentMajor='$studentMajor',studentGender='$studentGender'";
+    $query="INSERT INTO mst_student SET studentID='$studentID',studentName='$studentName',studentGender='$studentGender'";
     mysqli_query($connection, $query);
 // mengalihkan ke halaman index.php
-    header("location:index.php");
+    header("location:form-input.php");
 ?>
