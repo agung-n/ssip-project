@@ -16,23 +16,19 @@ Route::get('/', function () {
 });
 
 
-Route::get('/problem7', function()
+Route::get('/create', function()
 {
-    return view('problem7');
+    return view('create');
 });
-Route::get('/problem7a', function()
+Route::get('/read', function()
 {
-    return view('problem7a');
+    return view('read');
 });
-Route::get('/problem7b', function()
+Route::get('/update', function()
 {
-    return view('problem7b');
+    return view('update');
 });
-Route::get('/problem7c', function()
+Route::get('/delete', function()
 {
-    return view('problem7c');
-});
-Route::get('/problem7d', function()
-{
-    return view('problem7d');
+    return view('delete');
 });
