@@ -1,4 +1,4 @@
-		<?php
+<?php
     include 'connection.php';
 // menyimpan data kedalam variabel
     $studentID = $_POST['studentID'];
@@ -8,5 +8,5 @@
     $query="INSERT INTO mst_student SET studentID='$studentID',studentName='$studentName',studentGender='$studentGender'";
     mysqli_query($connection, $query);
 // mengalihkan ke halaman index.php
-    header("location:form-input.php");
+    header("location:index.php");
 ?>
