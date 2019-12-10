@@ -7,10 +7,11 @@
         <form method="post" action="submit.php">
             <table>
                 <tr><td>Student Name</td><td><input type="text" name="studentName"></td></tr>
-                <tr><td>Student Gender</td><td>
+                <tr><td>Gender</td><td>
                         <input type="radio" name="studentGender" value="M">Male
                         <input type="radio" name="studentGender" value="F">Female
                     </td></tr>
+                <tr><td>Birthday</td><td><input type="date" name="studentBirthdate"></td></tr>
                 <tr><td colspan="2"><button type="submit" value="submit">Submit</button></td></tr>
             </table>
         </form>
