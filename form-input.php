@@ -11,7 +11,7 @@
                         <input type="radio" name="studentGender" value="M">Male
                         <input type="radio" name="studentGender" value="F">Female
                     </td></tr>
-                <tr><td>Birthday</td><td><input type="date" name="studentBirthdate"></td></tr>
+                <tr><td>Birthday</td><td><input type="date" data-date="" data-date-format="YYYY-MM-DD" name="studentBirthdate"></td></tr>
                 <tr><td colspan="2"><button type="submit" value="submit">Submit</button></td></tr>
             </table>
         </form>
