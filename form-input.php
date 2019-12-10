@@ -6,7 +6,6 @@
     <body>
         <form method="post" action="submit.php">
             <table>
-                <tr><td>Student ID</td><td><input type="text" name="studentID"></td></tr>
                 <tr><td>Student Name</td><td><input type="text" name="studentName"></td></tr>
                 <tr><td>Student Gender</td><td>
                         <input type="radio" name="studentGender" value="M">Male
