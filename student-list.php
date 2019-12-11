@@ -19,8 +19,8 @@
 			echo "<td>".$row['studentID']."</td>";
 			echo "<td>".$row['studentName']."</td>";
 			echo "<td>".$row['studentGender']."</td>";
-			echo "<td><a href='delete.php?id=".$row['studentID']."'>Delete   </a>"; //if you want to delete based on studentID
-			echo "<a href='form-edit.php?id=".$row['studentID']."'>Edit</a>"; //if you want to edit based on studentID
+			echo "<td><a href='delete.php?id=".$row['studentID']."'>Delete   </a>"; //pindah ke delete.php dengan membawa value studentID
+			echo "<a href='form-edit.php?id=".$row['studentID']."'>Edit</a>"; //pindah ke edit.php dengan membawa studentID
 			echo "</tr>";
 			}
 			echo "</table>";
