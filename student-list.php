@@ -8,7 +8,7 @@
 	    // output data of each row
 	    	echo "<table>";
 	    	echo "<tr>";
-			echo "<td>"."Student ID"."</td>";
+			echo "<td>Student ID</td>";
 			echo "<td>Name</td>";
 			echo "<td>Gender</td>";
 			echo "<td>Delete/Edit</td>";
@@ -20,7 +20,7 @@
 			echo "<td>".$row['studentName']."</td>";
 			echo "<td>".$row['studentGender']."</td>";
 			echo "<td><a href='delete.php?id=".$row['studentID']."'>Delete   </a>"; //if you want to delete based on studentID
-			echo "<a href='edit.php?id=".$row['studentID']."'>   Edit</a>"; //if you want to edit based on studentID
+			echo "<a href='form-edit.php?id=".$row['studentID']."'>Edit</a>"; //if you want to edit based on studentID
 			echo "</tr>";
 			}
 			echo "</table>";
