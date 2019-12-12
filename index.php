@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -183,7 +183,9 @@
                     <img class="card-img-top" src="holder.js/100x180/" alt="">
                     <div class="card-body">
                         <h4 class="card-title">Yusuf Alexander</h4>
-                        <p class="card-text">0122018050##</p>
+
+                        <p class="card-text">012201805001</p>
+
                     </div>
                 </div>
                         
@@ -261,5 +263,4 @@
     <a href="form-input.php">Input Student</a><br>
     <a href="student-list.php">List Student</a>
   </body>
->>>>>>> f1221ac87fb19d4d70c3d355a4c9c59775ec6689
 </html>
