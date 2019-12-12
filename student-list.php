@@ -1,3 +1,5 @@
+<html>
+	<body>
 <?php
     include 'connection.php';
 
@@ -29,3 +31,6 @@
 	    echo "0 results";
 	}
 ?>
+		<button><a href="index.php">Back</a></button>
+	</body>
+</html>
