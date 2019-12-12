@@ -183,7 +183,7 @@
                     <img class="card-img-top" src="holder.js/100x180/" alt="">
                     <div class="card-body">
                         <h4 class="card-title">Yusuf Alexander</h4>
-                        <p class="card-text">0122018050##</p>
+                        <p class="card-text">012201805001</p>
                     </div>
                 </div>
                         
