@@ -15,5 +15,6 @@
                 <tr><td colspan="2"><button type="submit" value="submit">Submit</button></td></tr>
             </table>
         </form>
+        <button><a href="index.php">Back</a></button>
     </body>
 </html>
