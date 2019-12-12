@@ -4,8 +4,8 @@
     $studentID = $_POST['studentID'];
     $studentName = $_POST['studentName'];
     $studentGender = $_POST['studentGender']; //jika ada error indefined index berarti ada value yang belum terisi
+    $studentBirthdate = $_POST['studentBirthdate'];
 // query SQL untuk update query berdasarkan row yang diedit
-    $query="UPDATE mst_student SET studentName='$studentName',studentGender='$studentGender' WHERE studentID='$studentID'";
-    mysqli_query($connection, $query);
+    mysqli_query($connection, "UPDATE mst_student SET studentName='$studentName',studentGender='$studentGender', studentBirthdate='$studentBirthdate' WHERE studentID='$studentID'");
     header("location:student-list.php");
 ?>
