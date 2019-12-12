@@ -1,7 +1,7 @@
 <?php
 $host = "localhost"; // server
-$user = "sundaypr_dbadmin"; // username
-$pass = "passwordpasswordpassword"; // password
+$user = "root"; // username
+$pass = ""; // password
 $database = "sundaypr_ssip"; // nama database
  
 $connection = mysqli_connect($host, $user, $pass, $database); // menggunakan mysqli_connect
