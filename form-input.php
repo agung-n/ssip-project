@@ -3,7 +3,6 @@
 //     $result = mysqli_query($connection,"SELECT * FROM mst_student")
 ?> -->
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="en">
 
 <head>
@@ -241,7 +240,7 @@
 
 
 </body>
-
+<!--
 =======
 <html>
     <head>
@@ -260,6 +259,5 @@
             </table>
         </form>
         <button><a href="index.php">Back</a></button>
-    </body>
->>>>>>> f1221ac87fb19d4d70c3d355a4c9c59775ec6689
+    </body> -->
 </html>
