@@ -240,7 +240,7 @@
 
 
 </body>
-<!--
+<? /*
 =======
 <html>
     <head>
@@ -259,5 +259,5 @@
             </table>
         </form>
         <button><a href="index.php">Back</a></button>
-    </body> -->
+    </body> */ ?>
 </html>

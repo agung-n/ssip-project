@@ -251,7 +251,7 @@
 
 </body>
 
-<!--
+<? /*
 =======
 <html>
 	<body>
@@ -288,5 +288,5 @@
 ?>
 		<button><a href="index.php">Back</a></button>
 	</body>
->>>>>>> f1221ac87fb19d4d70c3d355a4c9c59775ec6689  -->
+>>>>>>> f1221ac87fb19d4d70c3d355a4c9c59775ec6689  */ ?>
 </html>
