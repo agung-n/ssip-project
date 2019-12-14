@@ -245,7 +245,7 @@
 
 
 </body>
-
+<? /*
 =======
 <!doctype html>
 <html>
@@ -262,5 +262,5 @@
 
     <a href="form-input.php">Input Student</a><br>
     <a href="student-list.php">List Student</a>
-  </body>
+  </body> */ ?>
 </html>
