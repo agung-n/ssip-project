@@ -16,15 +16,16 @@
       echo "<tr>";
       echo "<td>Male</td>";
       echo "<td>";
-      while ($resultmale = $resultmale->fetch_array($resultmale)) {
+      while ($resultmale = $resultmale->fetch_array()) {
     echo $resultmale[0];
 }
- /*     echo "</td>";
+      echo "</td>";
       echo "</tr>";
       echo "<tr>";
       echo "<td>Female</td>";
-      echo "<td>".$resultfemale."</td>";
-      echo "</tr>";
+      while ($resultfemale = $resultfemale->fetch_array()) {
+    echo $resultfemale[0];
+}     echo "</tr>";
       
       echo "</table>";
 */
