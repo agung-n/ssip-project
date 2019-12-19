@@ -8,8 +8,7 @@
   $sqlmale = "SELECT studentID, studentName, studentGender FROM mst_student where studentGender = 'Female'";
   $resultfemale = $connection->query($sql);
 
-  if ($result->num_rows > 0) {
-      // output data of each row
+     // output data of each row
         echo "<table>";
         echo "<tr>";
       echo "<td>Gender</td>";
@@ -39,8 +38,6 @@
       }
       echo "</table>";
       }*/
-   else {
-      echo "0 results";
   }
 ?>
     <button><a href="index.php">Back</a></button>
