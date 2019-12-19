@@ -3,10 +3,10 @@
 <?php
     include 'connection.php';
 
-  $sqlmale = "SELECT COUNT(studentID) FROM mst_student where studentGender = 'Male'";
-  $resultmale = $connection->query($sql);
-  $sqlmale = "SELECT COUNT(studentID) FROM mst_student where studentGender = 'Female'";
-  $resultfemale = $connection->query($sql);
+  $sqlmale = "SELECT COUNT(*) FROM mst_student where studentGender = 'Male'";
+  $resultmale = $connection->query($sqlmale);
+  $sqlfemale = "SELECT COUNT(*) FROM mst_student where studentGender = 'Female'";
+  $resultfemale = $connection->query($sqlfemale);
 
      // output data of each row
         echo "<table>";
@@ -15,8 +15,11 @@
       echo "<td>Number of student</td>";
       echo "<tr>";
       echo "<td>Male</td>";
-      die($resultmale)
-      echo "<td>".$resultmale."</td>";
+      echo "<td>";
+      while ($resultmale = $resultmale->fetch_array($resultmale)) {
+    echo $resultmale[0];
+}
+ /*     echo "</td>";
       echo "</tr>";
       echo "<tr>";
       echo "<td>Female</td>";
@@ -24,8 +27,7 @@
       echo "</tr>";
       
       echo "</table>";
-      
-
+*/
 
 /*
       while($row = $result->fetch_assoc()) {
