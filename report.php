@@ -23,7 +23,7 @@
       echo "</tr>";
       
       echo "</table>";
-      }
+      
 
 
 /*
@@ -38,7 +38,7 @@
       }
       echo "</table>";
       }*/
-  }
+  
 ?>
     <button><a href="index.php">Back</a></button>
   </body>
