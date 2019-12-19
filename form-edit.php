@@ -193,6 +193,12 @@
             </div>
 
             <div class="form-group">
+              <input type="hidden" name="majorName" id="major" class="form-control" placeholder="" aria-describedby="helpId"
+              value="<?php echo $data['studentMajor']; ?>">
+
+            </div>
+
+            <div class="form-group">
               <label for="">Gender</label>
               <select class="form-control" name="studentGender"  value="<?php echo $data['studentGender']; ?>">
                 <option value="Male">Male</option>
@@ -202,7 +208,7 @@
 
             <div class="form-group">
               <label for="">Birth Date</label>
-              <input type="text" name="studentName" id="" class="form-control" placeholder="" aria-describedby="helpId"
+              <input type="date" name="studentBirthdate" id="" class="form-control" placeholder="" aria-describedby="helpId"
               value="<?php echo $data['studentBirthdate']; ?>">
             </div>
 
