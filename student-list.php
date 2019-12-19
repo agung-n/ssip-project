@@ -203,8 +203,8 @@
 					            <td><?php echo $data['studentGender']; ?></td>
 					            <td><?php echo $data['studentBirthdate']; ?></td>
                       <td>
-                      <a class="btn btn-primary" href="form-edit.php?studentID=<?php echo $data['studentID']; ?>" role="button">Edit</a>
-                        <a class="btn btn-danger" href="delete.php?id=<?php echo $data['studentID']; ?>" role="button">Delete</a>
+                      <a class="btn btn-primary btn-sm" href="form-edit.php?studentID=<?php echo $data['studentID']; ?>" role="button">Edit</a>
+                        <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $data['studentID']; ?>" role="button">Delete</a>
                       </td>
                   </tr>
                 <?php } ?>
