@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 <?php 
      include_once "connection.php";
-     $result = mysqli_query($connection,"SELECT * FROM mst_student")
+     $result = mysqli_query($connection,"SELECT * FROM mst_student a, mst_major b where a.studentMajor=b.majorID")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +68,19 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Student : </h6>
             <a class="collapse-item" href="student-list.php">List Student</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-journal-whills"></i>
+          <span>Major</span>
+        </a>
+        <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Menu Major : </h6>
+            <a class="collapse-item" href="major/list-major.php">List Major</a>
           </div>
         </div>
       </li>
@@ -163,7 +175,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-			<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+			<h1 class="h3 mb-0 text-gray-800">List Student</h1>
 			<a class="btn btn-sm btn-primary" href="form-input.php">Add Student</a>
           </div>
 
@@ -171,11 +183,12 @@
           <table class="table">
               <thead>
                   <tr>
-                      <th>No</th>	
-                      <th>Full Name</th>
-					  <th>Gender</th>
-					  <th>Birth Date</th>
-                      <th>Action</th>
+                    <th>No</th>	
+                    <th>Full Name</th>
+                    <th>Major</th>
+					          <th>Gender</th>
+					          <th>Birth Date</th>
+                    <th>Action</th>
                   </tr>
               </thead>
               <tbody>
@@ -186,8 +199,9 @@
                   <tr>
                       <td scope="row"><?php echo $no ++; ?></td>
                       <td><?php echo $data['studentName']; ?></td>
-					  <td><?php echo $data['studentGender']; ?></td>
-					  <td><?php echo $data['studentBirthdate']; ?></td>
+                      <td><?php echo $data['majorName']; ?></td>
+					            <td><?php echo $data['studentGender']; ?></td>
+					            <td><?php echo $data['studentBirthdate']; ?></td>
                       <td>
                       <a class="btn btn-primary" href="form-edit.php?studentID=<?php echo $data['studentID']; ?>" role="button">Edit</a>
                         <a class="btn btn-danger" href="delete.php?id=<?php echo $data['studentID']; ?>" role="button">Delete</a>

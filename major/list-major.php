@@ -1,3 +1,7 @@
+<?php 
+     include_once "../connection.php";
+     $result = mysqli_query($connection,"SELECT * FROM mst_major")
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,14 +13,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SSIP Project Group 3</title>
+  <title>SSIP Project Group - 3</title>
 
   <!-- Custom fonts for this template-->
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -41,7 +45,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="../index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -63,12 +67,12 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Student : </h6>
-            <a class="collapse-item" href="student-list.php">List Student</a>
+            <a class="collapse-item" href="../student-list.php">List Student</a>
           </div>
         </div>
       </li>
 
-      
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-journal-whills"></i>
@@ -77,11 +81,13 @@
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Major : </h6>
-            <a class="collapse-item" href="major/list-major.php">List Major</a>
+            <a class="collapse-item" href="major-list.php">List Major</a>
           </div>
         </div>
       </li>
 
+
+      <!-- Heading -->
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -171,35 +177,64 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800">List Major</h1>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modelId">
+            Add Major</button>
           </div>
 
           <!-- Content Row -->
-          <div class="row">
-                <div class="card">
-                    <img class="card-img-top" src="" alt="">
-                    <div class="card-body">
-                        <h4 class="card-title">Alief Bagaskara Alamsyah</h4>
-                        <p class="card-text">012201805038</p>
-                    </div>
-                </div>
+          <table class="table table-inverse">
+              <thead>
+                  <tr>
+                      <th>No</th>	
+                      <th>Major Name</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <?php 
+                $no = 1;
+                while($data = mysqli_fetch_array($result)) {
+                ?>
+                  <tr>
+                      <td scope="row"><?php echo $no ++; ?></td>
+                      <td><?php echo $data['majorName']; ?></td>
+                      <td>
+                      <a class="btn btn-primary btn-sm" href="major_update.php?id=<?php echo $data['majorID']; ?>" role="button">Edit</a>
+                        <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $data['majorID']; ?>" role="button">Delete</a>
+                      </td>
+                  </tr>
+                <?php } ?>
+              </tbody>
+          </table>
 
-                <div class="card ml-3">
-                    <img class="card-img-top" src="holder.js/100x180/" alt="">
-                    <div class="card-body">
-                        <h4 class="card-title">Agung Nugraha</h4>
-                        <p class="card-text">012201805040</p>
-                    </div>
-                </div>
 
-                <div class="card ml-3">
-                    <img class="card-img-top" src="holder.js/100x180/" alt="">
-                    <div class="card-body">
-                        <h4 class="card-title">Yusuf Alexander</h4>
-                        <p class="card-text">0122018050##</p>
-                    </div>
-                </div>
-                        
+          <!--Modal Input Form -->            
+          <!-- Modal -->
+          <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">Add New Major</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                      </div>
+                      <div class="modal-body">
+                          <form method="post" action="action_major.php">
+                                <div class="form-group">
+                                  <label for="major">Major Name</label>
+                                  <input type="text" name="majorName" id="major" class="form-control" placeholder="" aria-describedby="helpId">
+                                </div>
+                  
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-success">Save</button>
+                      </div>
+                      </form>
+                  </div>
+              </div>
           </div>
 
         </div>
@@ -249,9 +284,11 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="assets/js/sb-admin-2.min.js"></script>
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../assets/js/sb-admin-2.min.js"></script>
+
+
 </body>
 </html>

@@ -1,3 +1,7 @@
+<?php 
+     include_once "../connection.php";
+     $result = mysqli_query($connection,"SELECT * FROM mst_major")
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,14 +13,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SSIP Project Group 3</title>
+  <title>SSIP Project Group - 3</title>
 
   <!-- Custom fonts for this template-->
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -41,7 +45,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="../index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -63,12 +67,12 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Student : </h6>
-            <a class="collapse-item" href="student-list.php">List Student</a>
+            <a class="collapse-item" href="../student-list.php">List Student</a>
           </div>
         </div>
       </li>
 
-      
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-journal-whills"></i>
@@ -77,11 +81,13 @@
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Major : </h6>
-            <a class="collapse-item" href="major/list-major.php">List Major</a>
+            <a class="collapse-item" href="major-list.php">List Major</a>
           </div>
         </div>
       </li>
 
+
+      <!-- Heading -->
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -171,36 +177,32 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800">Update Major</h1>
+            <a class="btn btn-sm btn-warning" href="list-major.php">Back</a>
           </div>
 
-          <!-- Content Row -->
-          <div class="row">
-                <div class="card">
-                    <img class="card-img-top" src="" alt="">
-                    <div class="card-body">
-                        <h4 class="card-title">Alief Bagaskara Alamsyah</h4>
-                        <p class="card-text">012201805038</p>
-                    </div>
-                </div>
+          <?php 
+            include_once "../connection.php";
+            $majorID = $_GET['id'];
+            $result = mysqli_query($connection, "SELECT * FROM mst_major WHERE majorID='$majorID'");
+            while($data = mysqli_fetch_array($result))
+            { ?>
+            <form method="post" action="update.php">
+              
+            <div class="form-group">
+              <label for="major">Major</label>
+              <input type="text" name="majorName" id="major" class="form-control" placeholder="" aria-describedby="helpId"
+              value="<?php echo $data['majorName']; ?>">
+              <input type="hidden" name="majorID" class="form-control" placeholder="" aria-describedby="helpId"
+              value="<?php echo $data['majorID']; ?>">
+            </div>
 
-                <div class="card ml-3">
-                    <img class="card-img-top" src="holder.js/100x180/" alt="">
-                    <div class="card-body">
-                        <h4 class="card-title">Agung Nugraha</h4>
-                        <p class="card-text">012201805040</p>
-                    </div>
-                </div>
+            <button type="submit" class="btn btn-md btn-success">Save</button>
 
-                <div class="card ml-3">
-                    <img class="card-img-top" src="holder.js/100x180/" alt="">
-                    <div class="card-body">
-                        <h4 class="card-title">Yusuf Alexander</h4>
-                        <p class="card-text">0122018050##</p>
-                    </div>
-                </div>
-                        
-          </div>
+            </form>
+            <?php } ?>
+
+
 
         </div>
         <!-- /.container-fluid -->
@@ -249,9 +251,11 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="assets/js/sb-admin-2.min.js"></script>
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../assets/js/sb-admin-2.min.js"></script>
+
+
 </body>
 </html>
