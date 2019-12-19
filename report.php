@@ -15,6 +15,7 @@
       echo "<td>Number of student</td>";
       echo "<tr>";
       echo "<td>Male</td>";
+      die($resultmale)
       echo "<td>".$resultmale."</td>";
       echo "</tr>";
       echo "<tr>";
