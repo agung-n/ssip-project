@@ -1,6 +1,6 @@
 <?php 
-     include_once "connection.php";
-     $result = mysqli_query($connection,"SELECT * FROM mst_student a, mst_major b where a.studentMajor=b.majorID")
+     include_once "../connection.php";
+     $result = mysqli_query($connection,"SELECT * FROM mst_major")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,11 +16,11 @@
   <title>SSIP Project Group - 3</title>
 
   <!-- Custom fonts for this template-->
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -45,7 +45,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="../index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -67,10 +67,11 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Student : </h6>
-            <a class="collapse-item" href="student-list.php">List Student</a>
+            <a class="collapse-item" href="../student-list.php">List Student</a>
           </div>
         </div>
       </li>
+
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
@@ -80,10 +81,11 @@
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Major : </h6>
-            <a class="collapse-item" href="major/list-major.php">List Major</a>
+            <a class="collapse-item" href="major-list.php">List Major</a>
           </div>
         </div>
       </li>
+
 
       <!-- Heading -->
       <!-- Divider -->
@@ -175,41 +177,32 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-			<h1 class="h3 mb-0 text-gray-800">List Student</h1>
-			<a class="btn btn-sm btn-primary" href="form-input.php">Add Student</a>
+            <h1 class="h3 mb-0 text-gray-800">Update Major</h1>
+            <a class="btn btn-sm btn-warning" href="list-major.php">Back</a>
           </div>
 
-          <!-- Content Row -->
-          <table class="table">
-              <thead>
-                  <tr>
-                    <th>No</th>	
-                    <th>Full Name</th>
-                    <th>Major</th>
-					          <th>Gender</th>
-					          <th>Birth Date</th>
-                    <th>Action</th>
-                  </tr>
-              </thead>
-              <tbody>
-                <?php 
-                $no = 1;
-                while($data = mysqli_fetch_array($result)) {
-                ?>
-                  <tr>
-                      <td scope="row"><?php echo $no ++; ?></td>
-                      <td><?php echo $data['studentName']; ?></td>
-                      <td><?php echo $data['majorName']; ?></td>
-					            <td><?php echo $data['studentGender']; ?></td>
-					            <td><?php echo $data['studentBirthdate']; ?></td>
-                      <td>
-                      <a class="btn btn-primary btn-sm" href="form-edit.php?studentID=<?php echo $data['studentID']; ?>" role="button">Edit</a>
-                        <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $data['studentID']; ?>" role="button">Delete</a>
-                      </td>
-                  </tr>
-                <?php } ?>
-              </tbody>
-          </table>
+          <?php 
+            include_once "../connection.php";
+            $majorID = $_GET['id'];
+            $result = mysqli_query($connection, "SELECT * FROM mst_major WHERE majorID='$majorID'");
+            while($data = mysqli_fetch_array($result))
+            { ?>
+            <form method="post" action="update.php">
+              
+            <div class="form-group">
+              <label for="major">Major</label>
+              <input type="text" name="majorName" id="major" class="form-control" placeholder="" aria-describedby="helpId"
+              value="<?php echo $data['majorName']; ?>">
+              <input type="hidden" name="majorID" class="form-control" placeholder="" aria-describedby="helpId"
+              value="<?php echo $data['majorID']; ?>">
+            </div>
+
+            <button type="submit" class="btn btn-md btn-success">Save</button>
+
+            </form>
+            <?php } ?>
+
+
 
         </div>
         <!-- /.container-fluid -->
@@ -258,50 +251,11 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="assets/js/sb-admin-2.min.js"></script>
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../assets/js/sb-admin-2.min.js"></script>
 
 
 </body>
-
-<? /*
-=======
-<html>
-	<body>
-<?php
-    include 'connection.php';
-
-	$sql = "SELECT studentID, studentName, studentGender FROM mst_student";
-	$result = $connection->query($sql);
-
-	if ($result->num_rows > 0) {
-	    // output data of each row
-	    	echo "<table>";
-	    	echo "<tr>";
-			echo "<td>Student ID</td>";
-			echo "<td>Name</td>";
-			echo "<td>Gender</td>";
-			echo "<td>Delete/Edit</td>";
-			echo "</tr>";
-			
-	    while($row = $result->fetch_assoc()) {
-			echo "<tr>";
-			echo "<td>".$row['studentID']."</td>";
-			echo "<td>".$row['studentName']."</td>";
-			echo "<td>".$row['studentGender']."</td>";
-			echo "<td><a href='delete.php?id=".$row['studentID']."'>Delete   </a>"; //pindah ke delete.php dengan membawa value studentID
-			echo "<a href='form-edit.php?id=".$row['studentID']."'>Edit</a>"; //pindah ke edit.php dengan membawa studentID
-			echo "</tr>";
-			}
-			echo "</table>";
-	    }
-	 else {
-	    echo "0 results";
-	}
-?>
-		<button><a href="index.php">Back</a></button>
-	</body>
->>>>>>> f1221ac87fb19d4d70c3d355a4c9c59775ec6689  */ ?>
 </html>

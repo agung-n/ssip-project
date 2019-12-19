@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,6 +64,20 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Student : </h6>
             <a class="collapse-item" href="student-list.php">List Student</a>
+          </div>
+        </div>
+      </li>
+
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-journal-whills"></i>
+          <span>Major</span>
+        </a>
+        <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Menu Major : </h6>
+            <a class="collapse-item" href="major/list-major.php">List Major</a>
           </div>
         </div>
       </li>
@@ -242,11 +255,8 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="assets/js/sb-admin-2.min.js"></script>
-
-
 </body>
 <? /*
-=======
 <!doctype html>
 <html>
   <head>
