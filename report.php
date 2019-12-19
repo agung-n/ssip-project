@@ -3,9 +3,9 @@
 <?php
     include 'connection.php';
 
-  $sqlmale = "SELECT studentID, studentName, studentGender FROM mst_student where studentGender = 'Male'";
+  $sqlmale = "SELECT COUNT(studentID) FROM mst_student where studentGender = 'Male'";
   $resultmale = $connection->query($sql);
-  $sqlmale = "SELECT studentID, studentName, studentGender FROM mst_student where studentGender = 'Female'";
+  $sqlmale = "SELECT COUNT(studentID) FROM mst_student where studentGender = 'Female'";
   $resultfemale = $connection->query($sql);
 
      // output data of each row
