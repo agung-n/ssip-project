@@ -21,14 +21,15 @@
 }
       echo "</td>";
       echo "</tr>";
+ /*
       echo "<tr>";
       echo "<td>Female</td>";
       while ($result = mysql_fetch_array($resultfemale)) {
     echo $result[0];
 }     echo "</tr>";
-      
+      */
       echo "</table>";
-*/
+
 
 /*
       while($row = $result->fetch_assoc()) {
