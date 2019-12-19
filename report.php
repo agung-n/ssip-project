@@ -4,9 +4,9 @@
     include 'connection.php';
 
   $sqlmale = "SELECT COUNT(*) FROM mst_student where studentGender = 'Male'";
-  $resultmale = $connection->query($sqlmale);
+  $resultmale = mysql_query($sqlmale);
   $sqlfemale = "SELECT COUNT(*) FROM mst_student where studentGender = 'Female'";
-  $resultfemale = $connection->query($sqlfemale);
+  $resultfemale = mysql_query($sqlfemale);
 
      // output data of each row
         echo "<table>";
@@ -16,15 +16,15 @@
       echo "<tr>";
       echo "<td>Male</td>";
       echo "<td>";
-      while ($resultmale = $resultmale->fetch_array()) {
-    echo $resultmale[0];
+      while ($result = mysql_fetch_array($resultmale)) {
+    echo $result[0];
 }
       echo "</td>";
       echo "</tr>";
       echo "<tr>";
       echo "<td>Female</td>";
-      while ($resultfemale = $resultfemale->fetch_array()) {
-    echo $resultfemale[0];
+      while ($result = mysql_fetch_array($resultfemale)) {
+    echo $result[0];
 }     echo "</tr>";
       
       echo "</table>";
